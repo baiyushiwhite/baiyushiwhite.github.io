@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>小白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="小白">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="小白">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="小白">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="小白" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,8 +36,6 @@
         
           <a class="main-nav-link" href="/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
       </nav>
       <nav id="sub-nav">
         
@@ -54,14 +52,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-1px-on-retina" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-touch系" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/08/27/1px-on-retina/" class="article-date">
-  <time datetime="2015-08-27T06:34:44.362Z" itemprop="datePublished">2015-08-27</time>
-</a>
+    <!--<a href="/2015/08/28/touch系/" class="article-date">-->
+    <!--<time datetime="2015-08-28T06:51:57.000Z" itemprop="datePublished">2015-08-28</time>-->
+<!--</a>-->
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/wap/">wap</a>
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/wap/">wap</a>
   </div>
 
   </div>
@@ -72,7 +70,274 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/27/1px-on-retina/">1px on retina</a>
+      <a class="article-title" href="/2015/08/28/touch系/">touch系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记点笔记<br><a href="http://www.w3.org/TR/touch-events/" target="_blank" rel="external">http://www.w3.org/TR/touch-events/</a></p>
+<h2 id="1-touch事件类型">1.touch事件类型</h2><p><img src="/img/touch系/touchtype.jpg" alt="事件类型"></p>
+<h2 id="2-TouchEvent_Interface">2.TouchEvent Interface</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface TouchEvent : UIEvent &#123;</span><br><span class="line">      readonly  attribute TouchList touches;//当前位于屏幕上的所有触点列表</span><br><span class="line">      readonly  attribute TouchList targetTouches;//位于当前 DOM 元素上的触点列表</span><br><span class="line">      readonly  attribute TouchList changedTouches;//涉及当前事件的触点列表。touchstart事件：当前事件所触到的点；touchmove：从上次事件到此时触到的所有点；touchend和touchcancel：刚从表面离开的点</span><br><span class="line">      readonly  attribute boolean   altKey;</span><br><span class="line">      readonly  attribute boolean   metaKey;</span><br><span class="line">      readonly  attribute boolean   ctrlKey;</span><br><span class="line">      readonly  attribute boolean   shiftKey;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="3-TouchList_Interface">3.TouchList Interface</h2><p>TouchList就是一个Touch对象的列表，一般在用户多个手指同时接触触控平面时使用这个接口<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TouchList</span> </span>&#123;</span><br><span class="line">    readonly  attribute unsigned <span class="keyword">long</span> length;</span><br><span class="line">    getter Touch? item (unsigned <span class="keyword">long</span> index);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-Touch_Interface">4.Touch Interface</h2><p>Touch对象是只读的，一旦创建就不会改变了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Touch</span> </span>&#123;</span><br><span class="line">      readonly    attribute <span class="keyword">long</span>        identifier;</span><br><span class="line">      readonly    attribute EventTarget target;</span><br><span class="line">      readonly    attribute <span class="keyword">long</span>        screenX;<span class="comment">//到屏幕x偏移</span></span><br><span class="line">      readonly    attribute <span class="keyword">long</span>        screenY;</span><br><span class="line">      readonly    attribute <span class="keyword">long</span>        clientX;<span class="comment">//到viewport x偏移</span></span><br><span class="line">      readonly    attribute <span class="keyword">long</span>        clientY;</span><br><span class="line">      readonly    attribute <span class="keyword">long</span>        pageX;<span class="comment">//到document content x偏移</span></span><br><span class="line">      readonly    attribute <span class="keyword">long</span>        pageY;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-Extensions_to_the_Document_Interface">5.Extensions to the Document Interface</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">partial <span class="class"><span class="keyword">interface</span> <span class="title">Document</span> </span>&#123;</span><br><span class="line">      <span class="function">Touch <span class="title">createTouch</span> <span class="params">(WindowProxy view, EventTarget target, <span class="keyword">long</span> identifier, <span class="keyword">long</span> pageX, <span class="keyword">long</span> pageY, <span class="keyword">long</span> screenX, <span class="keyword">long</span> screenY)</span></span>;<span class="comment">//创建一个touch事件</span></span><br><span class="line">      <span class="function">TouchList <span class="title">createTouchList</span> <span class="params">(Touch... touches)</span></span>;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.html5rocks.com/zh/mobile/touch/" target="_blank" rel="external">http://www.html5rocks.com/zh/mobile/touch/</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events#.E5.A4.84.E7.90.86.E5.8F.96.E6.B6.88.E8.A7.A6.E6.91.B8.E4.BA.8B.E4.BB.B6" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events#.E5.A4.84.E7.90.86.E5.8F.96.E6.B6.88.E8.A7.A6.E6.91.B8.E4.BA.8B.E4.BB.B6</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/28/touch系/" data-id="cidv8g1rs000incp6150janwd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-zepto事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/28/zepto事件/" class="article-date">-->
+    <!--<time datetime="2015-08-28T05:45:59.000Z" itemprop="datePublished">2015-08-28</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/wap/">wap</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/28/zepto事件/">zepto事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>zepto简单封装了几个常用的事件。源码只有这么一点点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> now, delta</span><br><span class="line"></span><br><span class="line">    $(<span class="built_in">document</span>.body).bind(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      now = <span class="built_in">Date</span>.now()</span><br><span class="line">      delta = now - (touch.last || now)</span><br><span class="line">      touch.el = $(parentIfText(e.touches[<span class="number">0</span>].target))</span><br><span class="line">      touchTimeout &amp;&amp; clearTimeout(touchTimeout)</span><br><span class="line">      touch.x1 = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">      touch.y1 = e.touches[<span class="number">0</span>].pageY</span><br><span class="line">      <span class="keyword">if</span> (delta &gt; <span class="number">0</span> &amp;&amp; delta &lt;= <span class="number">250</span>) touch.isDoubleTap = <span class="literal">true</span></span><br><span class="line">      touch.last = now</span><br><span class="line">      longTapTimeout = setTimeout(longTap, longTapDelay)</span><br><span class="line">    &#125;).bind(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      cancelLongTap()</span><br><span class="line">      touch.x2 = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">      touch.y2 = e.touches[<span class="number">0</span>].pageY</span><br><span class="line">    &#125;).bind(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">       cancelLongTap()</span><br><span class="line"></span><br><span class="line">      <span class="comment">// double tap (tapped twice within 250ms)</span></span><br><span class="line">      <span class="keyword">if</span> (touch.isDoubleTap) &#123;</span><br><span class="line">        touch.el.trigger(<span class="string">'doubleTap'</span>)</span><br><span class="line">        touch = &#123;&#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// swipe</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((touch.x2 &amp;&amp; <span class="built_in">Math</span>.abs(touch.x1 - touch.x2) &gt; <span class="number">30</span>) ||</span><br><span class="line">                 (touch.y2 &amp;&amp; <span class="built_in">Math</span>.abs(touch.y1 - touch.y2) &gt; <span class="number">30</span>)) &#123;</span><br><span class="line">        touch.el.trigger(<span class="string">'swipe'</span>) &amp;&amp;</span><br><span class="line">          touch.el.trigger(<span class="string">'swipe'</span> + (swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2)))</span><br><span class="line">        touch = &#123;&#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// normal tap</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">'last'</span> <span class="keyword">in</span> touch) &#123;</span><br><span class="line">        touch.el.trigger(<span class="string">'tap'</span>)</span><br><span class="line"></span><br><span class="line">        touchTimeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          touchTimeout = <span class="literal">null</span></span><br><span class="line">          touch.el.trigger(<span class="string">'singleTap'</span>)</span><br><span class="line">          touch = &#123;&#125;</span><br><span class="line">        &#125;, <span class="number">250</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).bind(<span class="string">'touchcancel'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (touchTimeout) clearTimeout(touchTimeout)</span><br><span class="line">      <span class="keyword">if</span> (longTapTimeout) clearTimeout(longTapTimeout)</span><br><span class="line">      longTapTimeout = touchTimeout = <span class="literal">null</span></span><br><span class="line">      touch = &#123;&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  ;[<span class="string">'swipe'</span>, <span class="string">'swipeLeft'</span>, <span class="string">'swipeRight'</span>, <span class="string">'swipeUp'</span>, <span class="string">'swipeDown'</span>, <span class="string">'doubleTap'</span>, <span class="string">'tap'</span>, <span class="string">'singleTap'</span>, <span class="string">'longTap'</span>].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">    $.fn[m] = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.bind(m, callback) &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>从以上逻辑可以看出来，每个事件的实现逻辑如下，</p>
+<ul>
+<li>longTap：touchStart750ms之内没有触发touchMove和touchEnd</li>
+<li>doubleTap: 250ms之内触发了两次touchStart</li>
+<li>swipe：touchStart后有touchMove发生，且最后的移动距离超过30，则触发swipe事件；根据上下偏移的距离和左右偏移的距离，大的为最后swipe的方向。再触发swipeLeft,swipeRight, swipeUp, swipeDown事件。</li>
+<li>tap:在tap之后会延迟250触发一个singleTap事件来判断是否进行了两次touchStart。如果在250ms之内又触发了一个touchStart则会清空singleTap的延迟调用。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/28/zepto事件/" data-id="cidv8g1rl000bncp6jnov0pst" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tap点透" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/28/tap点透/" class="article-date">-->
+    <!--<time datetime="2015-08-28T04:51:57.000Z" itemprop="datePublished">2015-08-28</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/wap/">wap</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/28/tap点透/">tap点透</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题">问题</h2><p>在移动端使用zepto的tap的时候会容易出现点透的现象。比如商场页有一个popup的弹层，用来显示商场地图和信息。弹层右上角有一个关闭弹层的x。当点击弹层的x关闭弹层的时候，会点透到x下面的团单。</p>
+<h2 id="原因">原因</h2><p>当手指放在屏幕上时，实际上发生了一系列的事件。touchstart -&gt; touchend -&gt; mouseover -&gt; mousemove -&gt; mousedown -&gt; mouseup -&gt; click触发 click 有明显的 300ms的延迟。之所以有这个延迟是因为浏览器需要确定用户是不是要“双击屏幕” (double-tap)进行缩放。<br>所以在弹层tap上绑定了隐藏掉弹层的事件，当隐藏 弹层之后，还有一个延迟的 click 事件。但是如果点击的位置上有一个 带有click 事件的元素并且处于页面最前端（离用户最近）或者点击位置的下面是a, input等标签，就会触发这个 click。</p>
+<h2 id="解决方法">解决方法</h2><h3 id="Fastclick">Fastclick</h3><blockquote>
+<p>FastClick doesn’t attach any listeners on desktop browsers.</p>
+<p>Chrome 32+ on Android with width=device-width in the viewport meta tag doesn’t have a 300ms delay, therefore listeners aren’t attached.</p>
+<p><meta name="viewport" content="width=device-width, initial-scale=1"><br>Same goes for Chrome on Android (all versions) with user-scalable=no in the viewport meta tag. But be aware that user-scalable=no also disables pinch zooming, which may be an accessibility concern.</p>
+<p>For IE11+, you can use touch-action: manipulation; to disable double-tap-to-zoom on certain elements (like links and buttons). For IE10 use -ms-touch-action: manipulation.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    FastClick.attach(<span class="built_in">document</span>.body);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>（1）FastClick 是在 touchend 的时候，模拟触发该元素的click事件。<br>会返回一个事件，每个返回的事件会有一个自己的特定的init方法，比如initMouseEvent的方法，调用该方法可以初始化事件对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> clickEvent = <span class="built_in">document</span>.createEvent(<span class="string">'MouseEvent'</span>)</span><br><span class="line">clickEvent.initMouseEvent(</span><br><span class="line">    <span class="string">'click'</span>,<span class="comment">//事件类型</span></span><br><span class="line">    <span class="literal">true</span>,<span class="comment">//是否冒泡</span></span><br><span class="line">    <span class="literal">true</span>,<span class="comment">//是否可以取消</span></span><br><span class="line">    <span class="built_in">window</span>,<span class="comment">//相关联的视图document.defaultView</span></span><br><span class="line">    <span class="number">1</span>,<span class="comment">//与事件相关的详细信息</span></span><br><span class="line">    touch.screenX,<span class="comment">//事件相对于屏幕的位置</span></span><br><span class="line">    touch.screenY,<span class="comment">//</span></span><br><span class="line">    touch.clientX,<span class="comment">//相对viewport的位置</span></span><br><span class="line">    touch.clientY,</span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了crl</span></span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了alt</span></span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了shift</span></span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了meta</span></span><br><span class="line">    <span class="number">0</span>,<span class="comment">//按下了鼠标的哪个键</span></span><br><span class="line">    <span class="literal">null</span></span><br><span class="line">);</span><br><span class="line">clickEvent.isMyOwnEvent = <span class="literal">true</span>;</span><br><span class="line">target.dispatchEvent(clickEvent)</span><br></pre></td></tr></table></figure></p>
+<p>（2）然后在document.body上监听真正的click事件，在真正的 click 到来的时候，会首先在捕捉阶段在Fastclick.layer, 这里是 document.body 中捕获，如果不是自己定义的click事件，则通过 e.stopPropagation()阻止后续节点对 click 的事件处理，并通过 e.stopImmediatePropagation() 阻止我们在<br>Fastclick.layer 上添加的其他回调。通过preveneDefault();来组织事件的默认行为。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.isMyOwnEvent) &#123;</span><br><span class="line">        <span class="comment">// 模拟的click事件</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 真正的click事件</span></span><br><span class="line">    e.stopImmediatePropagation();</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;, <span class="literal">true</span>);<span class="comment">// 捕捉阶段就阻止真正的事件</span></span><br></pre></td></tr></table></figure></p>
+<p><a href="http://jsbin.com/hewobi/2/edit?html,js,output" target="_blank" rel="external">http://jsbin.com/hewobi/2/edit?html,js,output</a></p>
+<h3 id="引用">引用</h3><p><a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">https://github.com/ftlabs/fastclick</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/28/tap点透/" data-id="cidv8g1rz000oncp6uygkc7ch" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-dom-view-api" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/27/dom-view-api/" class="article-date">-->
+    <!--<time datetime="2015-08-27T08:33:33.000Z" itemprop="datePublished">2015-08-27</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/27/dom-view-api/">dom view api</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记个笔记<br><a href="http://www.w3.org/TR/2011/WD-cssom-view-20110804/" target="_blank" rel="external">http://www.w3.org/TR/2011/WD-cssom-view-20110804/</a></p>
+<h2 id="1-window_Interface">1.window Interface</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">partial <span class="class"><span class="keyword">interface</span> <span class="title">Window</span> </span>&#123;</span><br><span class="line">  <span class="function">MediaQueryList <span class="title">matchMedia</span><span class="params">(DOMString media_query_list)</span></span>;</span><br><span class="line">  readonly attribute Screen screen;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// viewport,viewport大小，包括滚动条</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> innerWidth;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> innerHeight;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// viewport scrolling</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> scrollX;<span class="comment">//和pageXOffset都返回的是Initial Container block左上角到viewport左上角的x偏移</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> pageXOffset;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> scrollY;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> pageYOffset;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">scroll</span><span class="params">(<span class="keyword">long</span> x, <span class="keyword">long</span> y)</span></span>;<span class="comment">//将document content的x, y与viewport左上角重合，会触发scroll事件</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">scrollTo</span><span class="params">(<span class="keyword">long</span> x, <span class="keyword">long</span> y)</span></span>;<span class="comment">//同scroll</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">scrollBy</span><span class="params">(<span class="keyword">long</span> x, <span class="keyword">long</span> y)</span></span>;<span class="comment">//将document content的x偏移 + x, y偏移+ y 与viewport左上角重合，会触发scroll事件</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// client</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> screenX;<span class="comment">//距离屏幕左上角的x偏移</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> screenY;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> outerWidth;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> outerHeight;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Element_Interface">2.Element Interface</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">partial <span class="class"><span class="keyword">interface</span> <span class="title">Element</span> </span>&#123;</span><br><span class="line">  <span class="function">ClientRectList <span class="title">getClientRects</span><span class="params">()</span></span>;<span class="comment">//返回的是元素border box相对viewport的位置</span></span><br><span class="line">  <span class="function">ClientRect <span class="title">getBoundingClientRect</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// scrolling</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">scrollIntoView</span><span class="params">(optional <span class="keyword">boolean</span> top)</span></span>;</span><br><span class="line">  attribute <span class="keyword">long</span> scrollTop;   <span class="comment">//读取scrollTop时：若元素是根元素document.documentElement，返回window.scrollY；若元素是document.body，文档是quirk模式，body元素没有overflow，则返回window.scrollY；否则返回当前元素content左上角与该元素的content box的左上角在y上的偏移。设置scrollTop时：如果元素是根元素document.documentElement，调用window.scroll(0,y)；若元素是document.body，文档是quirk模式，调用window.scroll(window.scrollX, y)；否则将当前元素content的ele.scrollLeft,y的位置与该元素的content box的左上角对齐</span></span><br><span class="line">  attribute <span class="keyword">long</span> scrollLeft;  <span class="comment">// scroll on setting</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> scrollWidth;<span class="comment">//若元素是document.documentElement且当前不是quirk模式，返回max(document content width, window.innerWidth)；若元素是document.body且文档是quirk模式，返回max(document content width, window.innerWidth)；否则返回padding-left的计算值+padding-right计算值+content width。</span></span><br><span class="line"></span><br><span class="line">  readonly attribute <span class="keyword">long</span> scrollHeight;</span><br><span class="line"></span><br><span class="line">  readonly attribute <span class="keyword">long</span> clientTop;<span class="comment">//border-top-width的计算值（若有滚动条还要加滚动条）</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> clientLeft;<span class="comment">//border-left-width的计算值（若有滚动条还要加滚动条）</span></span><br><span class="line"></span><br><span class="line">  readonly attribute <span class="keyword">long</span> clientWidth;<span class="comment">//当元素是document.documentElement时，返回viewport width不包括滚动条。若不是根元素，返回padding-edge（不包含padding-edge和border-edge间的滚动条）,如下图</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> clientHeight;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/dom-view-api/clientWidth.jpg" alt="clientWidth"></p>
+<h2 id="3-HTML_Element_Interface">3.HTML Element Interface</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">partial <span class="class"><span class="keyword">interface</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">  readonly attribute Element offsetParent;<span class="comment">//若当前元素是document.documentElement/document.body/position:fixed，返回null；否则是position!=static的最近祖先，如果没有则是body，当前元素position是static祖先是td,th,table</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> offsetTop;<span class="comment">//元素padding-edge到offsetParent的border edge</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> offsetLeft;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> offsetWidth;<span class="comment">// 如下图</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> offsetHeight;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/dom-view-api/offsetWidth.jpg" alt="offsetWidth"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// chrome</span></span><br><span class="line"><span class="built_in">window</span>.innerWidth<span class="comment">//1366</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.offsetWidth<span class="comment">//1349</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.clientWidth<span class="comment">//1349</span></span><br><span class="line"><span class="comment">// ff</span></span><br><span class="line"><span class="built_in">window</span>.innerWidth<span class="comment">//1366</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.offsetWidth<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.clientWidth<span class="comment">//1366</span></span><br><span class="line"><span class="comment">// IE10</span></span><br><span class="line"><span class="built_in">window</span>.innerWidth <span class="comment">//1366 </span></span><br><span class="line"><span class="built_in">document</span>.documentElement.offsetWidth<span class="comment">//1366</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.clientWidth <span class="comment">//1349</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-MouseEvent_Interface">4.MouseEvent Interface</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">partial <span class="class"><span class="keyword">interface</span> <span class="title">MouseEvent</span> </span>&#123;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> screenX;<span class="comment">//到屏幕左上角的x偏移</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> screenY;</span><br><span class="line"></span><br><span class="line">  readonly attribute <span class="keyword">long</span> pageX;<span class="comment">//到document content的左上角的x偏移</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> pageY;</span><br><span class="line"></span><br><span class="line">  readonly attribute <span class="keyword">long</span> clientX;<span class="comment">//到viewport左上角的x偏移</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> clientY;</span><br><span class="line">  readonly attribute <span class="keyword">long</span> x;<span class="comment">//返回clientX</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> y;</span><br><span class="line"></span><br><span class="line">  readonly attribute <span class="keyword">long</span> offsetX;<span class="comment">//到event.target的padding-edge的x偏移</span></span><br><span class="line">  readonly attribute <span class="keyword">long</span> offsetY;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/27/dom-view-api/" data-id="cidv8g1s9000uncp693vx1mtd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Deferred" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/27/Deferred/" class="article-date">-->
+    <!--<time datetime="2015-08-26T16:00:00.000Z" itemprop="datePublished">2015-08-27</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/27/Deferred/">Deferred</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>首先是一个对象 object；</li>
+<li>是对Promise/A规范的实现：<a href="http://promisesaplus.com/" target="_blank" rel="external">http://promisesaplus.com/</a></li>
+<li>管理异步操作中回调函数的一个对象；</li>
+<li>将异步操作包装成具有同步操作特性；</li>
+<li>改变了异步操作中回调函数组织方式；由层层嵌套的组织方式(厄运的金字塔)，变成了一种优雅的链接方式，提高了异步操作中代码的可读性、耦合性、维护性；</li>
+</ul>
+<h2 id="1-_新建一个deferred对象">1. 新建一个deferred对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dtd = $.Deferred(); <span class="comment">//新建一个Deferred对象</span></span><br><span class="line"><span class="keyword">var</span> dtd = $.Deferred(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;)<span class="comment">//将把$.Deferred()创建的默认的deferred对象传递给fn</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-_deferred对象基本知识">2. deferred对象基本知识</h2><ul>
+<li>deferred对象三种状态：pending、resolved、rejected</li>
+<li>注册回调函数的方法：dfd.done()、dfd.fail()、dfd.always()、dfd.progress()、dfd.then()</li>
+<li>trigger回调函数的三类方法：dfd.resolve()/dfd.resolveWith()、dfd.reject()/dfd.rejectWith()、dfd.notify()/dfd.notifyWith()加with就可以指定回调函数调用的上下文</li>
+<li>deferred.then( doneFilter [, failFilter ] [, progressFilter ] )：<br>(1)当dfd处于resolved时，执行doneFilter；<br>(2)当dfd处于rejected时，执行failFilter；<br>(3)当dfd调用notify或notifyWith时，执行progressFilter</li>
+<li>当deferred处于resolved状态或者rejected状态时deferred.always(alwaysCallbacks [, alwaysCallbacks ])执行</li>
+<li>检测dfd状态方法：dfd.state()、dfd.isResolved()、dfd.isRejected()</li>
+</ul>
+<h2 id="3-_关于then">3. 关于then</h2><ul>
+<li>jQuery1.8之前，dfd.then()等价于dfd.done().fail()</li>
+<li>jQuery1.8+<br>（1）then()返回一个新的promise对象 (deferred对象的只读版本，不能改变他的状态，即没有resolve、reject方法）<br>（2）如果then()指定的回调函数有返回值，该返回值会作为参数，传入后面的回调函数。当then的返回值是一个derferred对象时，后面的注册方法都是注册在新的deferred对象上。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> defer1 = $.Deferred(); <span class="comment">//构建异步对象 </span></span><br><span class="line">defer.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'derfer1 '</span> + value);</span><br><span class="line">    <span class="keyword">var</span> defer2 = $.Deferred();</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        defer2.resolve(value * <span class="number">5</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>); </span><br><span class="line">    <span class="keyword">return</span> defer2;</span><br><span class="line">&#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'打印出值 '</span> + value); <span class="comment">//将过5秒再打印出25</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    defer.resolve(<span class="number">5</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>所以通过这个可以用来重写多个嵌套的ajax请求<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前这样的代码</span></span><br><span class="line">$.get(<span class="string">'js/js1'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    $.get(<span class="string">'js/js2'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">        $.get(<span class="string">'js/js3'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//do something</span></span><br><span class="line">            $.get(<span class="string">'js/js4'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">//do something</span></span><br><span class="line">                $.get(<span class="string">'js/js5.js'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="comment">//do something</span></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 可以改写成</span></span><br><span class="line">$.get(<span class="string">'js/js1'</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.get(<span class="string">'js/js2'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.get(<span class="string">'js/js3'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.get(<span class="string">'js/js4'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.get(<span class="string">'js/js5'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    doSomething();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-_$-when()">4. $.when()</h2><p>传入多个deferred指定，为多个事件指定回调函数，只有全部deferred都resolve了才调用then的第一个参数。如果要等待多个异步事件完成才触发某一个事件，那么这个方法非常有用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dfd1 = $.Deferred();</span><br><span class="line"><span class="keyword">var</span> dfd2 = $.Deferred();</span><br><span class="line"><span class="keyword">var</span> dfd3 = $.Deferred();</span><br><span class="line">$.when(dfd1, dfd2, dfd3).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ok'</span>);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(‘someone error’);</span><br><span class="line">&#125;);</span><br><span class="line">dfd1.resolve();</span><br><span class="line">dfd2.resolve();</span><br><span class="line">dfd3.resolve();</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/27/Deferred/" data-id="cidv8g1sh0010ncp6dudmwp4e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-1px-on-retina" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/26/1px-on-retina/" class="article-date">-->
+    <!--<time datetime="2015-08-25T16:00:00.000Z" itemprop="datePublished">2015-08-26</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/wap/">wap</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/1px-on-retina/">1px on retina</a>
     </h1>
   
 
@@ -94,61 +359,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/27/1px-on-retina/" data-id="cidtufk62000018p696y94w0v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/26/1px-on-retina/" data-id="cidv8g1qj0000ncp66i3nt9aw" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端-wap-css/">前端 wap css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/26/hello-world/" class="article-date">
-  <time datetime="2015-08-26T15:48:37.649Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端-css/">前端 css</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/26/hello-world/" data-id="cidtufka8000518p6g25trzmc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端-js/">前端 js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
 
     </footer>
   </div>
@@ -166,7 +380,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/wap/">wap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端-css/">前端 css</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/wap/">wap</a><span class="category-list-count">4</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -175,7 +389,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端-js/">前端 js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端-wap-css/">前端 wap css</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wap/">wap</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -184,16 +398,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/前端-js/" style="font-size: 10px;">前端 js</a> <a href="/tags/前端-wap-css/" style="font-size: 10px;">前端 wap css</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li></ul>
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/wap/" style="font-size: 13.33px;">wap</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
     </div>
   </div>
 
@@ -205,11 +410,23 @@
       <ul>
         
           <li>
-            <a href="/2015/08/27/1px-on-retina/">1px on retina</a>
+            <a href="/2015/08/28/touch系/">touch系</a>
           </li>
         
           <li>
-            <a href="/2015/08/26/hello-world/">Hello World</a>
+            <a href="/2015/08/28/zepto事件/">zepto事件</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/tap点透/">tap点透</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/dom-view-api/">dom view api</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/Deferred/">Deferred</a>
           </li>
         
       </ul>
@@ -233,8 +450,6 @@
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     

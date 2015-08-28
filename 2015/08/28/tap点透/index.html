@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>小白</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="问题在移动端使用zepto的tap的时候会容易出现点透的现象。比如商场页有一个popup的弹层，用来显示商场地图和信息。弹层右上角有一个关闭弹层的x。当点击弹层的x关闭弹层的时候，会点透到x下面的团单。
+原因当手指放在屏幕上时，实际上发生了一系列的事件。touchstart -&amp;gt; touchend -&amp;gt; mouseover -&amp;gt; mousemove -&amp;gt; mousedown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tap点透">
+<meta property="og:url" content="http://yoursite.com/2015/08/28/tap点透/index.html">
+<meta property="og:site_name" content="小白">
+<meta property="og:description" content="问题在移动端使用zepto的tap的时候会容易出现点透的现象。比如商场页有一个popup的弹层，用来显示商场地图和信息。弹层右上角有一个关闭弹层的x。当点击弹层的x关闭弹层的时候，会点透到x下面的团单。
+原因当手指放在屏幕上时，实际上发生了一系列的事件。touchstart -&amp;gt; touchend -&amp;gt; mouseover -&amp;gt; mousemove -&amp;gt; mousedown">
+<meta property="og:updated_time" content="2015-08-28T05:45:13.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tap点透">
+<meta name="twitter:description" content="问题在移动端使用zepto的tap的时候会容易出现点透的现象。比如商场页有一个popup的弹层，用来显示商场地图和信息。弹层右上角有一个关闭弹层的x。当点击弹层的x关闭弹层的时候，会点透到x下面的团单。
+原因当手指放在屏幕上时，实际上发生了一系列的事件。touchstart -&amp;gt; touchend -&amp;gt; mouseover -&amp;gt; mousemove -&amp;gt; mousedown">
+  
+    <link rel="alternative" href="/atom.xml" title="小白" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-tap点透" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/28/tap点透/" class="article-date">-->
+    <!--<time datetime="2015-08-28T04:51:57.000Z" itemprop="datePublished">2015-08-28</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/wap/">wap</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      tap点透
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题">问题</h2><p>在移动端使用zepto的tap的时候会容易出现点透的现象。比如商场页有一个popup的弹层，用来显示商场地图和信息。弹层右上角有一个关闭弹层的x。当点击弹层的x关闭弹层的时候，会点透到x下面的团单。</p>
+<h2 id="原因">原因</h2><p>当手指放在屏幕上时，实际上发生了一系列的事件。touchstart -&gt; touchend -&gt; mouseover -&gt; mousemove -&gt; mousedown -&gt; mouseup -&gt; click触发 click 有明显的 300ms的延迟。之所以有这个延迟是因为浏览器需要确定用户是不是要“双击屏幕” (double-tap)进行缩放。<br>所以在弹层tap上绑定了隐藏掉弹层的事件，当隐藏 弹层之后，还有一个延迟的 click 事件。但是如果点击的位置上有一个 带有click 事件的元素并且处于页面最前端（离用户最近）或者点击位置的下面是a, input等标签，就会触发这个 click。</p>
+<h2 id="解决方法">解决方法</h2><h3 id="Fastclick">Fastclick</h3><blockquote>
+<p>FastClick doesn’t attach any listeners on desktop browsers.</p>
+<p>Chrome 32+ on Android with width=device-width in the viewport meta tag doesn’t have a 300ms delay, therefore listeners aren’t attached.</p>
+<p><meta name="viewport" content="width=device-width, initial-scale=1"><br>Same goes for Chrome on Android (all versions) with user-scalable=no in the viewport meta tag. But be aware that user-scalable=no also disables pinch zooming, which may be an accessibility concern.</p>
+<p>For IE11+, you can use touch-action: manipulation; to disable double-tap-to-zoom on certain elements (like links and buttons). For IE10 use -ms-touch-action: manipulation.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    FastClick.attach(<span class="built_in">document</span>.body);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>（1）FastClick 是在 touchend 的时候，模拟触发该元素的click事件。<br>会返回一个事件，每个返回的事件会有一个自己的特定的init方法，比如initMouseEvent的方法，调用该方法可以初始化事件对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> clickEvent = <span class="built_in">document</span>.createEvent(<span class="string">'MouseEvent'</span>)</span><br><span class="line">clickEvent.initMouseEvent(</span><br><span class="line">    <span class="string">'click'</span>,<span class="comment">//事件类型</span></span><br><span class="line">    <span class="literal">true</span>,<span class="comment">//是否冒泡</span></span><br><span class="line">    <span class="literal">true</span>,<span class="comment">//是否可以取消</span></span><br><span class="line">    <span class="built_in">window</span>,<span class="comment">//相关联的视图document.defaultView</span></span><br><span class="line">    <span class="number">1</span>,<span class="comment">//与事件相关的详细信息</span></span><br><span class="line">    touch.screenX,<span class="comment">//事件相对于屏幕的位置</span></span><br><span class="line">    touch.screenY,<span class="comment">//</span></span><br><span class="line">    touch.clientX,<span class="comment">//相对viewport的位置</span></span><br><span class="line">    touch.clientY,</span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了crl</span></span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了alt</span></span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了shift</span></span><br><span class="line">    <span class="literal">false</span>,<span class="comment">//是否按下了meta</span></span><br><span class="line">    <span class="number">0</span>,<span class="comment">//按下了鼠标的哪个键</span></span><br><span class="line">    <span class="literal">null</span></span><br><span class="line">);</span><br><span class="line">clickEvent.isMyOwnEvent = <span class="literal">true</span>;</span><br><span class="line">target.dispatchEvent(clickEvent)</span><br></pre></td></tr></table></figure></p>
+<p>（2）然后在document.body上监听真正的click事件，在真正的 click 到来的时候，会首先在捕捉阶段在Fastclick.layer, 这里是 document.body 中捕获，如果不是自己定义的click事件，则通过 e.stopPropagation()阻止后续节点对 click 的事件处理，并通过 e.stopImmediatePropagation() 阻止我们在<br>Fastclick.layer 上添加的其他回调。通过preveneDefault();来组织事件的默认行为。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.isMyOwnEvent) &#123;</span><br><span class="line">        <span class="comment">// 模拟的click事件</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 真正的click事件</span></span><br><span class="line">    e.stopImmediatePropagation();</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;, <span class="literal">true</span>);<span class="comment">// 捕捉阶段就阻止真正的事件</span></span><br></pre></td></tr></table></figure></p>
+<p><a href="http://jsbin.com/hewobi/2/edit?html,js,output" target="_blank" rel="external">http://jsbin.com/hewobi/2/edit?html,js,output</a></p>
+<h3 id="引用">引用</h3><p><a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">https://github.com/ftlabs/fastclick</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/28/tap点透/" data-id="cidv8g1rz000oncp6uygkc7ch" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/28/zepto事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          zepto事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/27/dom-view-api/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">dom view api</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/wap/">wap</a><span class="category-list-count">4</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wap/">wap</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/wap/" style="font-size: 13.33px;">wap</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/28/touch系/">touch系</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/zepto事件/">zepto事件</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/tap点透/">tap点透</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/dom-view-api/">dom view api</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/Deferred/">Deferred</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>小白</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="zepto简单封装了几个常用的事件。源码只有这么一点点：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253$(document).ready(function()&amp;#123;    var now, delta    $(document.body).bi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zepto事件">
+<meta property="og:url" content="http://yoursite.com/2015/08/28/zepto事件/index.html">
+<meta property="og:site_name" content="小白">
+<meta property="og:description" content="zepto简单封装了几个常用的事件。源码只有这么一点点：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253$(document).ready(function()&amp;#123;    var now, delta    $(document.body).bi">
+<meta property="og:updated_time" content="2015-08-28T05:53:54.052Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="zepto事件">
+<meta name="twitter:description" content="zepto简单封装了几个常用的事件。源码只有这么一点点：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253$(document).ready(function()&amp;#123;    var now, delta    $(document.body).bi">
+  
+    <link rel="alternative" href="/atom.xml" title="小白" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-zepto事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/28/zepto事件/" class="article-date">-->
+    <!--<time datetime="2015-08-28T05:45:59.000Z" itemprop="datePublished">2015-08-28</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/wap/">wap</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      zepto事件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>zepto简单封装了几个常用的事件。源码只有这么一点点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> now, delta</span><br><span class="line"></span><br><span class="line">    $(<span class="built_in">document</span>.body).bind(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      now = <span class="built_in">Date</span>.now()</span><br><span class="line">      delta = now - (touch.last || now)</span><br><span class="line">      touch.el = $(parentIfText(e.touches[<span class="number">0</span>].target))</span><br><span class="line">      touchTimeout &amp;&amp; clearTimeout(touchTimeout)</span><br><span class="line">      touch.x1 = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">      touch.y1 = e.touches[<span class="number">0</span>].pageY</span><br><span class="line">      <span class="keyword">if</span> (delta &gt; <span class="number">0</span> &amp;&amp; delta &lt;= <span class="number">250</span>) touch.isDoubleTap = <span class="literal">true</span></span><br><span class="line">      touch.last = now</span><br><span class="line">      longTapTimeout = setTimeout(longTap, longTapDelay)</span><br><span class="line">    &#125;).bind(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      cancelLongTap()</span><br><span class="line">      touch.x2 = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">      touch.y2 = e.touches[<span class="number">0</span>].pageY</span><br><span class="line">    &#125;).bind(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">       cancelLongTap()</span><br><span class="line"></span><br><span class="line">      <span class="comment">// double tap (tapped twice within 250ms)</span></span><br><span class="line">      <span class="keyword">if</span> (touch.isDoubleTap) &#123;</span><br><span class="line">        touch.el.trigger(<span class="string">'doubleTap'</span>)</span><br><span class="line">        touch = &#123;&#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// swipe</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((touch.x2 &amp;&amp; <span class="built_in">Math</span>.abs(touch.x1 - touch.x2) &gt; <span class="number">30</span>) ||</span><br><span class="line">                 (touch.y2 &amp;&amp; <span class="built_in">Math</span>.abs(touch.y1 - touch.y2) &gt; <span class="number">30</span>)) &#123;</span><br><span class="line">        touch.el.trigger(<span class="string">'swipe'</span>) &amp;&amp;</span><br><span class="line">          touch.el.trigger(<span class="string">'swipe'</span> + (swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2)))</span><br><span class="line">        touch = &#123;&#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// normal tap</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">'last'</span> <span class="keyword">in</span> touch) &#123;</span><br><span class="line">        touch.el.trigger(<span class="string">'tap'</span>)</span><br><span class="line"></span><br><span class="line">        touchTimeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          touchTimeout = <span class="literal">null</span></span><br><span class="line">          touch.el.trigger(<span class="string">'singleTap'</span>)</span><br><span class="line">          touch = &#123;&#125;</span><br><span class="line">        &#125;, <span class="number">250</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).bind(<span class="string">'touchcancel'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (touchTimeout) clearTimeout(touchTimeout)</span><br><span class="line">      <span class="keyword">if</span> (longTapTimeout) clearTimeout(longTapTimeout)</span><br><span class="line">      longTapTimeout = touchTimeout = <span class="literal">null</span></span><br><span class="line">      touch = &#123;&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  ;[<span class="string">'swipe'</span>, <span class="string">'swipeLeft'</span>, <span class="string">'swipeRight'</span>, <span class="string">'swipeUp'</span>, <span class="string">'swipeDown'</span>, <span class="string">'doubleTap'</span>, <span class="string">'tap'</span>, <span class="string">'singleTap'</span>, <span class="string">'longTap'</span>].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">    $.fn[m] = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.bind(m, callback) &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>从以上逻辑可以看出来，每个事件的实现逻辑如下，</p>
+<ul>
+<li>longTap：touchStart750ms之内没有触发touchMove和touchEnd</li>
+<li>doubleTap: 250ms之内触发了两次touchStart</li>
+<li>swipe：touchStart后有touchMove发生，且最后的移动距离超过30，则触发swipe事件；根据上下偏移的距离和左右偏移的距离，大的为最后swipe的方向。再触发swipeLeft,swipeRight, swipeUp, swipeDown事件。</li>
+<li>tap:在tap之后会延迟250触发一个singleTap事件来判断是否进行了两次touchStart。如果在250ms之内又触发了一个touchStart则会清空singleTap的延迟调用。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/28/zepto事件/" data-id="cidv8g1rl000bncp6jnov0pst" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/28/touch系/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          touch系
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/28/tap点透/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">tap点透</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/wap/">wap</a><span class="category-list-count">4</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wap/">wap</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/wap/" style="font-size: 13.33px;">wap</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/28/touch系/">touch系</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/zepto事件/">zepto事件</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/tap点透/">tap点透</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/dom-view-api/">dom view api</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/Deferred/">Deferred</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

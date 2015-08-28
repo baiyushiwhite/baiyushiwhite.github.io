@@ -484,6 +484,7 @@ body {
 }
 .article-inner {
   overflow: hidden;
+  margin-top: 1em;
 }
 .article-meta:before,
 .article-meta:after {
@@ -502,9 +503,6 @@ body {
   color: #ccc;
   text-shadow: 0 1px #fff;
   margin-left: 8px;
-}
-.article-category:before {
-  content: "\2022";
 }
 .article-category-link {
   margin: 0 12px 1em;
