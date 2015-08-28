@@ -52,6 +52,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-git-笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/28/git-笔记/" class="article-date">-->
+    <!--<time datetime="2015-08-28T07:25:03.000Z" itemprop="datePublished">2015-08-28</time>-->
+<!--</a>-->
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/28/git-笔记/">git 笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-svn和git的差别">1.svn和git的差别</h2><ul>
+<li>Git是一款分布式的版本控制软件，svn是集中式的版本控制软件。</li>
+<li>git可以进行本地的版本控制，而且不影响中心服务器中的代码。而svn不行，只要commit，更改就会提交到服务器。</li>
+<li>因为git每次commit的时候保存的是快照，而svn保存的是差异比较，所以git分支切换非常快 <h2 id="2-git状态">2.git状态</h2><img src="/img/git/git.jpg" alt="git状态图"><h2 id="3-git常用指令">3.git常用指令</h2></li>
+<li><p>基本指令<br>git init 初始化新仓库<br>git clone [url] 克隆仓库<br>git status 检查状态<br>git log 查看历史<br>git diff 查看差异</p>
+</li>
+<li><p>Modified状态快照：</p>
+<ul>
+<li>git add file 文件进行跟踪/将修改添加到暂存 –&gt; staged。</li>
+<li>git checkout – file 取消对文件的修改 –&gt; unmodified</li>
+</ul>
+</li>
+<li><p>staged状态快照：</p>
+<ul>
+<li>git commit –m “xxx”  提交staged快照 –&gt; unmodified</li>
+<li>git reset HEAD file 取消暂存（即add后的文件）–&gt; modified</li>
+</ul>
+</li>
+<li><p>分支操作<br>git checkout 切换分支<br>git checkout –b 新建并且换到新分支<br>git branch 查看branch<br>git branch -r 查看远程分支<br>git branch -d 删除分支<br>git push origin:[name] 删除远程分支，推送一个空分支到远程分支，其实就相当于删除远程分支<br>git merge [branch] 合并分支</p>
+</li>
+<li><p>远程操作<br>git remote show 查看远程库<br>git remote add origin [url] 添加远程分支<br>git push [远程仓库名如origin] [分支名master] 将本地分支推送到服务器上去<br>git fetch 获取服务器内容但不合并<br>git pull 本地与服务器端同步</p>
+</li>
+<li><p>撤销<br>git reset [–soft | –mixed | –hard] [<commit>]<br>1）使用参数–hard，如git reset –hard <commit><br>①替换引用的指向。引用指向新的提交ID。<br>②替换暂存区。替换后，暂存区的内容和引用指向的目录树一致。<br>③替换工作区。替换后，工作区的内容变得和暂存区一致，也和HEAD所指向的目录树内容相同。<br>2）使用参数–soft，如 git reset –soft <commit><br>只更改引用的指向，不改变暂存区和工作区。<br>git reset –soft HEAD^<br>git commit -e -F ‘’<br>相当于git commit –amend<br>3）使用参数–mixed或者不使用参数（默认为–mixed），如 git reset <commit><br>更改引用的指向及重置暂存区，但是不改变工作区。相当于将之前用git add 命令更新到暂存区的内容撤出暂存区<br>解决冲突：<br>编辑冲突文件后提交。</commit></commit></commit></commit></p>
+</li>
+</ul>
+<p>参考：<br><a href="http://git-scm.com/docs/git-reset" target="_blank" rel="external">http://git-scm.com/docs/git-reset</a><br><a href="http://www.cnblogs.com/craftor/archive/2012/11/04/2754140.html" target="_blank" rel="external">http://www.cnblogs.com/craftor/archive/2012/11/04/2754140.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/28/git-笔记/" data-id="cidvbn8rp00126cp6sxd4rszz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-touch系" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <!--<a href="/2015/08/28/touch系/" class="article-date">-->
@@ -89,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/touch系/" data-id="cidv8g1rs000incp6150janwd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/touch系/" data-id="cidvbn8ra000q6cp6r4vqe3sx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -139,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/zepto事件/" data-id="cidv8g1rl000bncp6jnov0pst" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/zepto事件/" data-id="cidvbn8qy000k6cp6j044viez" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -194,10 +256,83 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/tap点透/" data-id="cidv8g1rz000oncp6uygkc7ch" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/tap点透/" data-id="cidvbn8rj000w6cp6rx34htqn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/28/动画/" class="article-date">-->
+    <!--<time datetime="2015-08-27T16:00:00.000Z" itemprop="datePublished">2015-08-28</time>-->
+<!--</a>-->
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/小demo/">小demo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/28/动画/">动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-CSS3_animation">1.CSS3 animation</h2><ul>
+<li>浏览器自身分配每帧的长度，tab切换和浏览器最小化的时候不重绘。</li>
+<li>完全使用CSS，不用js，然而这样的动画适合于逻辑比较简单的场景，简单到不需要js来控制。</li>
+<li>语法<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* @keyframes name | duration | timing-function | delay | </span><br><span class="line">   iteration-count | direction | fill-mode | play-state */</span><br><span class="line">  animation: slidein 3s ease-in 1s 2 reverse both paused;</span><br><span class="line"></span><br><span class="line">/* @keyframes name | duration | timing-function | delay */</span><br><span class="line">  animation: slidein 3s linear 1s;*/</span><br><span class="line"></span><br><span class="line">/* @keyframes name | duration */</span><br><span class="line">  animation: slidein 3s;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>具体语法和兼容性：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/CSS/animation</a><br>以下是我用CSS3实现的轮播<br><a href="http://jsbin.com/cokisi/edit?html,css,output" target="_blank" rel="external">http://jsbin.com/cokisi/edit?html,css,output</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">		<span class="at_rule">@<span class="keyword">-webkit-keyframes</span> slider </span>&#123;</span><br><span class="line">			0% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(<span class="number">0px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			20% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(<span class="number">0px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			25% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(-<span class="number">500px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			45% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(-<span class="number">500px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			50% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(-<span class="number">1000px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			70% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(-<span class="number">1000px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			75% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(-<span class="number">1500px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			95% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(-<span class="number">1500px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">			100% <span class="rules">&#123;</span><br><span class="line">				<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateX</span>(<span class="number">0px</span>)</span></span>;</span><br><span class="line">			&#125;</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="id">#wrapper</span> <span class="rules">&#123;</span><br><span class="line">			<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">400px</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">		&#125;</span></span><br><span class="line">		<span class="id">#sliders</span> <span class="rules">&#123;</span><br><span class="line">			<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">400%</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> slider <span class="number">4s</span> linear <span class="number">0s</span> infinite normal</span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">animation</span>:<span class="value"> slider <span class="number">4s</span> linear <span class="number">0s</span> infinite normal</span></span>;</span><br><span class="line">		&#125;</span></span><br><span class="line">		<span class="tag">li</span> <span class="rules">&#123;</span><br><span class="line">			<span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">25%</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">		&#125;</span></span><br><span class="line">		<span class="tag">img</span> <span class="rules">&#123;</span><br><span class="line">			<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">			<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">		&#125;</span></span><br><span class="line">	</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"wrapper"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"sliders"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://csscience.com/responsiveslidercss3/CouldDragonByBjzaba.png"</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://csscience.com/responsiveslidercss3/MountainFortByBjzaba.png"</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://csscience.com/responsiveslidercss3/MountainOutpostByBjzaba.png"</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://csscience.com/responsiveslidercss3/CliffsByBjzaba.png"</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-requestAnimationFrame">2.requestAnimationFrame</h2><p><a href="http://www.w3.org/TR/animation-timing/" target="_blank" rel="external">http://www.w3.org/TR/animation-timing/</a></p>
+<ul>
+<li>这个API请求浏览器来分配以一个动画什么时候执行，由浏览器决定每秒分配多少帧给每个动画，如果有多个动画，浏览器会选一个合适的frame rate来使得所有动画都能流畅地进行。</li>
+<li>tab切换和浏览器最小化的时候不重绘。</li>
+<li>每个document有一个animation frame request callback list，初始化的时候是空的，里面的object有这两个属性<handle, callback="">，handle是list中的id，callback是回调方法。<br>一次requestAnimationFrame的调用callback只会一次，要重绘多次，需要在callback里面再调用一次requestAnimationFrame。如果在callback中调用多次requestAnimationFrame会在list中加入多个object，导致callback执行多次</handle,></li>
+<li>虽然说requestAnimationFrame的兼容性和CSS3 Animation差不多，但是<br>requestAnimationFrame可以方便复用setTimeout/setInterval的方法。相对要支持低版本浏览器的页面更容易实现。</li>
+<li>有些效果CSS3完不成，比如说slider的循环轮播，或者动画效果中样式值有些要依赖于JS中的变量。比如scrollTop回到顶部的动画必须要在js里面才能做。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> requestAnimationFrame = <span class="built_in">window</span>.requestAnimationFrame || <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        fn(+<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">    &#125;, <span class="number">17</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> cancelAnimationFrame = <span class="built_in">window</span>.cancelAnimationFrame || <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">    clearTimeout(id);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以下是兼容实现，摘自<a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* requestAnimationFrame.js</span><br><span class="line"> * by zhangxinxu 2013-09-30</span><br><span class="line">*/</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> lastTime = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> vendors = [<span class="string">'webkit'</span>, <span class="string">'moz'</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; vendors.length &amp;&amp; !<span class="built_in">window</span>.requestAnimationFrame; ++x) &#123;</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="built_in">window</span>[vendors[x] + <span class="string">'RequestAnimationFrame'</span>];</span><br><span class="line">        <span class="built_in">window</span>.cancelAnimationFrame = <span class="built_in">window</span>[vendors[x] + <span class="string">'CancelAnimationFrame'</span>] ||    <span class="comment">// name has changed in Webkit</span></span><br><span class="line">        <span class="built_in">window</span>[vendors[x] + <span class="string">'CancelRequestAnimationFrame'</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">window</span>.requestAnimationFrame) &#123;</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params">callback, element</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> currTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">            <span class="keyword">var</span> timeToCall = <span class="built_in">Math</span>.max(<span class="number">0</span>, <span class="number">16.7</span> - (currTime - lastTime));</span><br><span class="line">            <span class="keyword">var</span> id = <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                callback(currTime + timeToCall);</span><br><span class="line">            &#125;, timeToCall);</span><br><span class="line">            lastTime = currTime + timeToCall;</span><br><span class="line">            <span class="keyword">return</span> id;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">window</span>.cancelAnimationFrame) &#123;</span><br><span class="line">        <span class="built_in">window</span>.cancelAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">            clearTimeout(id);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-setTimeout/setInterval">3.setTimeout/setInterval</h2><ul>
+<li>要考虑浏览器支持，还是得用setTimeout和setInterval。</li>
+<li>setTimeout和setInterval循环间隔必须足够短，才能使动画效果平滑流畅；另一方面循环间隔要足够长才能保证浏览器有能力渲染产生的变化。大多数电脑显示器1s重绘60次，因此最佳循环间隔是17ms左右。在tab切换掉和浏览器最小化的时候，仍然执行。</li>
+<li><p>setTimeout和setInterval不精确。因为他们只是在给定的时间把任务添加到任务队列，并不是任务在给定的时间执行。如果UI线程繁忙，比如忙于处理用户操作，那么任务就会延迟。</p>
+<p> 以下改写了一下规范中的例子。<br><a href="http://jsbin.com/zuwilu/edit?html,css,js,output" target="_blank" rel="external">http://jsbin.com/zuwilu/edit?html,css,js,output</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>Script-based animation using requestAnimationFrame<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">50px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">background</span>:<span class="value"> crimson</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> white</span><br><span class="line">    &#125;</span><br><span class="line"></span></span></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> requestAnimationFrame = <span class="built_in">window</span>.requestAnimationFrame || <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            fn(+<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">        &#125;, <span class="number">17</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> cancelAnimationFrame = <span class="built_in">window</span>.cancelAnimationFrame || <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">        clearTimeout(id);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> requestId = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> total = <span class="number">1000</span>;<span class="comment">// 10s一个周期</span></span><br><span class="line">    <span class="keyword">var</span> distance = <span class="number">600</span>;<span class="comment">// 一次滑动600px</span></span><br><span class="line">    <span class="keyword">var</span> animationStartTime;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params">time</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"animated"</span>).style.left =</span><br><span class="line">                distance * ((time - animationStartTime) % total) / total + <span class="string">"px"</span>;</span><br><span class="line">        requestId = requestAnimationFrame(animate);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        animationStartTime = +<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">        requestId = requestAnimationFrame(animate);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (requestId) &#123;</span><br><span class="line">            cancelAnimationFrame(requestId);</span><br><span class="line">        &#125;</span><br><span class="line">        requestId = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">onclick</span>=<span class="value">"start()"</span>&gt;</span>Click me to start!<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">onclick</span>=<span class="value">"stop()"</span>&gt;</span>Click me to stop!<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"animated"</span>&gt;</span>Hello there.<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>最后给出用setInterval实现的轮播<br><a href="http://jsbin.com/monuwi/edit?html,css,js,output" target="_blank" rel="external">http://jsbin.com/monuwi/edit?html,css,js,output</a><br>参考</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/CSS/animation</a></li>
+<li><a href="http://www.w3.org/TR/animation-timing/" target="_blank" rel="external">http://www.w3.org/TR/animation-timing/</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/28/动画/" data-id="cidvbn8qo000b6cp62meg2qke" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
 
     </footer>
   </div>
@@ -242,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/27/dom-view-api/" data-id="cidv8g1s9000uncp693vx1mtd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/27/dom-view-api/" data-id="cidvbn8rz00136cp6q9u3sw57" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -307,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/27/Deferred/" data-id="cidv8g1sh0010ncp6dudmwp4e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/27/Deferred/" data-id="cidvbn8sa00196cp6lfcgl2l9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -359,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/26/1px-on-retina/" data-id="cidv8g1qj0000ncp66i3nt9aw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/26/1px-on-retina/" data-id="cidvbn8pm00006cp60900wvhj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -380,7 +515,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/wap/">wap</a><span class="category-list-count">4</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/wap/">wap</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/小demo/">小demo</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -389,7 +524,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wap/">wap</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wap/">wap</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -398,7 +533,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/wap/" style="font-size: 13.33px;">wap</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/wap/" style="font-size: 13.33px;">wap</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a>
     </div>
   </div>
 
@@ -408,6 +543,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/08/28/git-笔记/">git 笔记</a>
+          </li>
         
           <li>
             <a href="/2015/08/28/touch系/">touch系</a>
@@ -422,11 +561,7 @@
           </li>
         
           <li>
-            <a href="/2015/08/27/dom-view-api/">dom view api</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/27/Deferred/">Deferred</a>
+            <a href="/2015/08/28/动画/">动画</a>
           </li>
         
       </ul>
@@ -441,7 +576,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
+      &copy; 2015 xiaobai<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
