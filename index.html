@@ -52,6 +52,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-行内元素居中" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--<a href="/2015/08/29/行内元素居中/" class="article-date">-->
+    <!--<time datetime="2015-08-29T15:07:38.000Z" itemprop="datePublished">2015-08-29</time>-->
+<!--</a>-->
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/29/行内元素居中/">行内元素居中</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-水平居中">1.水平居中</h1><p>父元素text-align:center;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>水平居中设置父元素的text-align:center<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"width:500px;border:1px dashed red;height:100px;text-align:center;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px dashed blue;"</span>&gt;</span>text-align只作用于块级元素，多行也是一样的。注意看看border是怎么框的。对于inline-*子元素都可以<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="2-垂直居中">2.垂直居中</h1><h2 id="2-1单行">2.1单行</h2><p>将inline元素的line-height设置为和父元素一样高度即可，即行内框等于父元素的height，行间距平分到内容区的上下。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"border:1px dashed red;height:100px;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"font-size:14px;line-height:100px;"</span>&gt;</span>父元素设置height=100px；子元素的line-height设为100px;记住line-height的百分比是相对于font-size计算的，不是父元素的height</span><br><span class="line">	<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-2多行">2.2多行</h2><ul>
+<li><p>父元素table-cell + vertical-align</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"border:1px dashed red;height:200px;display:table-cell;vertical-align:middle;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">style</span>=<span class="value">"border:1px solid blue;"</span>&gt;</span>父元素设置display:table-cell和vertical-align:middle即可。<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>inline-block</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="rule"><span class="attribute">.container</span>:<span class="value">after &#123;</span><br><span class="line">        content:<span class="string">'空元素'</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">vertical-align</span>:<span class="value">middle</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">0px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100%</span></span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span> <span class="attribute">style</span>=<span class="value">"border:1px dashed red;height:300px;font-size:0;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">style</span>=<span class="value">"border:1px solid blue;font-size:14px;display: inline-block;vertical-align:middle;"</span>&gt;</span></span><br><span class="line">        方法二：<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        父元素设置<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        text-align:center;</span><br><span class="line">        <span class="tag">&lt;<span class="title">br</span>&gt;</span>font-size:0;<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        父元素的after伪类设置<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        content:'空元素';<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        vertical-align:middle;<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        display:inline-block;<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        width:0px;<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        height:100%;//撑起行高<span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">        多行文本设置display:inline-block;<span class="tag">&lt;<span class="title">br</span>/&gt;</span></span><br><span class="line">        vertical-align:middle;<span class="tag">&lt;<span class="title">br</span>/&gt;</span></span><br><span class="line">        用空标签撑起行框。将多行看成一个整体，看看这种方式和table-cell的区别，border的位置。<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/img/居中/多行文本垂直居中.jpg" alt="多行文本垂直居中"><br><a href="http://jsbin.com/xufupa/edit?html,css,output" target="_blank" rel="external">http://jsbin.com/xufupa/edit?html,css,output</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/29/行内元素居中/" data-id="cidx923x1000b3kp60xqefivq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-垃圾回收" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <!--<a href="/2015/08/29/javascript-垃圾回收/" class="article-date">-->
@@ -92,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/29/javascript-垃圾回收/" data-id="cidwod0im0012wwp6jou487e4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/29/javascript-垃圾回收/" data-id="cidx923y800133kp6hl66mevm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -160,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/git-笔记/" data-id="cidwod0j00018wwp6o83dzs8p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/git-笔记/" data-id="cidx923yj00193kp66cnnwtlt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
@@ -209,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/touch系/" data-id="cidwod0i8000qwwp6wnzoyc6j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/touch系/" data-id="cidx923xq000r3kp6x4lta1pi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -259,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/zepto事件/" data-id="cidwod0hx000kwwp6k6pkec7g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/zepto事件/" data-id="cidx923xi000l3kp6yoeuwry4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -314,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/tap点透/" data-id="cidwod0if000wwwp61vy65bgq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/tap点透/" data-id="cidx923y2000x3kp6qnreb7wa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -387,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/动画/" data-id="cidwod0hn000bwwp6823vgq7q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/动画/" data-id="cidx923x5000c3kp6uj769jru" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -435,7 +482,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/27/dom-view-api/" data-id="cidwod0j6001dwwp60sudsl91" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/27/dom-view-api/" data-id="cidx923yq001e3kp67onoorg2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -500,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/27/Deferred/" data-id="cidwod0jb001iwwp6nqn46c5p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/27/Deferred/" data-id="cidx923yx001j3kp6iqx440ie" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -552,7 +599,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/26/1px-on-retina/" data-id="cidwod0h20000wwp6jfpkiyti" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/26/1px-on-retina/" data-id="cidx923w700003kp6fi2yqvow" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wap/">wap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -603,6 +650,10 @@
       <ul>
         
           <li>
+            <a href="/2015/08/29/行内元素居中/">行内元素居中</a>
+          </li>
+        
+          <li>
             <a href="/2015/08/29/javascript-垃圾回收/">javascript 垃圾回收</a>
           </li>
         
@@ -616,10 +667,6 @@
         
           <li>
             <a href="/2015/08/28/zepto事件/">zepto事件</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/28/tap点透/">tap点透</a>
           </li>
         
       </ul>
