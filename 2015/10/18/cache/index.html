@@ -5,29 +5,23 @@
   
   <title>小白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.svn和git的差别
-Git是一款分布式的版本控制软件，svn是集中式的版本控制软件。
-git可以进行本地的版本控制，而且不影响中心服务器中的代码。而svn不行，只要commit，更改就会提交到服务器。
-因为git每次commit的时候保存的是快照，而svn保存的是差异比较，所以git分支切换非常快 2.git状态3.git常用指令
-基本指令git init 初始化新仓库git clone [">
+  <meta name="description" content="缓存的处理步骤
+HTTP1.0的Expires首部和HTTP1.1的Cache-Control:max-age首部来指定过期日期；二者所做的事情本质上是一样的，Cache-Control用的是相对时间（秒），Expires用的是绝对日期。
+服务器再验证：仅仅是过期了不代表缓存的资源和服务器的资源有差异，所以要进行服务器再验证。（1）If-Modified-Since + Last-Modified">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 笔记">
-<meta property="og:url" content="http://yoursite.com/2015/08/28/git-笔记/index.html">
+<meta property="og:title" content="cache">
+<meta property="og:url" content="http://yoursite.com/2015/10/18/cache/index.html">
 <meta property="og:site_name" content="小白">
-<meta property="og:description" content="1.svn和git的差别
-Git是一款分布式的版本控制软件，svn是集中式的版本控制软件。
-git可以进行本地的版本控制，而且不影响中心服务器中的代码。而svn不行，只要commit，更改就会提交到服务器。
-因为git每次commit的时候保存的是快照，而svn保存的是差异比较，所以git分支切换非常快 2.git状态3.git常用指令
-基本指令git init 初始化新仓库git clone [">
-<meta property="og:image" content="http://yoursite.com/img/git/git.jpg">
-<meta property="og:updated_time" content="2015-08-28T08:22:29.883Z">
+<meta property="og:description" content="缓存的处理步骤
+HTTP1.0的Expires首部和HTTP1.1的Cache-Control:max-age首部来指定过期日期；二者所做的事情本质上是一样的，Cache-Control用的是相对时间（秒），Expires用的是绝对日期。
+服务器再验证：仅仅是过期了不代表缓存的资源和服务器的资源有差异，所以要进行服务器再验证。（1）If-Modified-Since + Last-Modified">
+<meta property="og:image" content="http://yoursite.com/img/缓存/cache.jpg">
+<meta property="og:updated_time" content="2015-10-18T14:49:40.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 笔记">
-<meta name="twitter:description" content="1.svn和git的差别
-Git是一款分布式的版本控制软件，svn是集中式的版本控制软件。
-git可以进行本地的版本控制，而且不影响中心服务器中的代码。而svn不行，只要commit，更改就会提交到服务器。
-因为git每次commit的时候保存的是快照，而svn保存的是差异比较，所以git分支切换非常快 2.git状态3.git常用指令
-基本指令git init 初始化新仓库git clone [">
+<meta name="twitter:title" content="cache">
+<meta name="twitter:description" content="缓存的处理步骤
+HTTP1.0的Expires首部和HTTP1.1的Cache-Control:max-age首部来指定过期日期；二者所做的事情本质上是一样的，Cache-Control用的是相对时间（秒），Expires用的是绝对日期。
+服务器再验证：仅仅是过期了不代表缓存的资源和服务器的资源有差异，所以要进行服务器再验证。（1）If-Modified-Since + Last-Modified">
   
     <link rel="alternative" href="/atom.xml" title="小白" type="application/atom+xml">
   
@@ -64,14 +58,14 @@ git可以进行本地的版本控制，而且不影响中心服务器中的代�
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-git-笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-cache" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <!--<a href="/2015/08/28/git-笔记/" class="article-date">-->
-    <!--<time datetime="2015-08-28T07:25:03.000Z" itemprop="datePublished">2015-08-28</time>-->
+    <!--<a href="/2015/10/18/cache/" class="article-date">-->
+    <!--<time datetime="2015-10-18T14:45:16.000Z" itemprop="datePublished">2015-10-18</time>-->
 <!--</a>-->
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/工具/">工具</a>
+    <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/http/">http</a>
   </div>
 
   </div>
@@ -82,7 +76,7 @@ git可以进行本地的版本控制，而且不影响中心服务器中的代�
         
   
     <h1 class="article-title" itemprop="name">
-      git 笔记
+      cache
     </h1>
   
 
@@ -90,40 +84,24 @@ git可以进行本地的版本控制，而且不影响中心服务器中的代�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-svn和git的差别">1.svn和git的差别</h2><ul>
-<li>Git是一款分布式的版本控制软件，svn是集中式的版本控制软件。</li>
-<li>git可以进行本地的版本控制，而且不影响中心服务器中的代码。而svn不行，只要commit，更改就会提交到服务器。</li>
-<li>因为git每次commit的时候保存的是快照，而svn保存的是差异比较，所以git分支切换非常快 <h2 id="2-git状态">2.git状态</h2><img src="/img/git/git.jpg" alt="git状态图"><h2 id="3-git常用指令">3.git常用指令</h2></li>
-<li><p>基本指令<br>git init 初始化新仓库<br>git clone [url] 克隆仓库<br>git status 检查状态<br>git log 查看历史<br>git diff 查看差异</p>
+        <h2 id="缓存的处理步骤">缓存的处理步骤</h2><ol>
+<li>HTTP1.0的Expires首部和HTTP1.1的Cache-Control:max-age首部来指定过期日期；二者所做的事情本质上是一样的，Cache-Control用的是相对时间（秒），Expires用的是绝对日期。</li>
+<li>服务器再验证：仅仅是过期了不代表缓存的资源和服务器的资源有差异，所以要进行服务器再验证。<br>（1）If-Modified-Since + Last-Modified<br>向服务器发送一个带If-Modified-Since日期的条件GET，如果没有修改304，不会返回主体，但会发一个新的过期日期。否则200，返回新的Last-Modified时间<br>（2）If-None-Match + Etag<br>有些文档周期性重写，其实内容不变，但修改日期变了。若更新频率很高，以秒为粒度的修改日期不够用。服务器在返回数据的时候在响应首部返回ETag，类似于hash，检测的时候把ETag放在If-None-Match请求头部发给服务器，验证是否改变。若不变304，若变了200并返回新的ETag.若服务器返回了一个ETag，则必须用ETag验证，若服务器只返回了Last-Modified，则用If-Modified-Since验证。若都有，就应该使用两种验证，只有这两者都满足了才能返回304。<br><img src="/img/缓存/cache.jpg" alt="缓存处理步骤"></li>
+</ol>
+<h2 id="如何控制缓存过期时间">如何控制缓存过期时间</h2><ol>
+<li>Cache-Control:<br>（1）no-Store响应头部：禁止缓存对响应进行复制，响应通常在转发给给客户端后就从缓存中删掉；因为其中可能会有敏感信息。<br>（2）no-Cache响应头部：可以存储在本地缓存区中，只是在原始服务器进行新鲜度度再验证之前不能提供给客户端使用（即每次都要跟原始服务器做新鲜度再验证）。<br>HTTP1.1中的Pragma：no-cache首部是为了兼容HTTP1.0+。除了与只理解HTTP1.0的应用交互时，都应该使用Cache-Control:no-cache<br>（1）max-age响应头部：秒为单位，设为0时，则每次都要请求原始服务器。<br>（2）must-revalidate响应头部：在没有与原始服务器进行再验证的情况下不能提供缓存中的副本，如果原始服务器不可用就提供504的Gateway Timeout错误。</li>
+<li>Expires:（不推荐）<br>实际日期而不是相对秒数。会有时钟不同步的问题。<br>服务器可以通过HTTP-QUIV控制HTML缓存。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Pragma"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Cache-Control"</span> <span class="attribute">content</span>=<span class="value">"no-cache"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Expires"</span> <span class="attribute">content</span>=<span class="value">"0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Modified状态快照：</p>
-<ul>
-<li>git add file 文件进行跟踪/将修改添加到暂存 –&gt; staged。</li>
-<li>git checkout – file 取消对文件的修改 –&gt; unmodified</li>
-</ul>
-</li>
-<li><p>staged状态快照：</p>
-<ul>
-<li>git commit –m “xxx”  提交staged快照 –&gt; unmodified</li>
-<li>git reset HEAD file 取消暂存（即add后的文件）–&gt; modified</li>
-</ul>
-</li>
-<li><p>分支操作<br>git checkout 切换分支<br>git checkout –b 新建并且换到新分支<br>git branch 查看branch<br>git branch -r 查看远程分支<br>git branch -d 删除分支<br>git push origin:[name] 删除远程分支，推送一个空分支到远程分支，其实就相当于删除远程分支<br>git merge [branch] 合并分支</p>
-</li>
-<li><p>远程操作<br>git remote show 查看远程库<br>git remote add origin [url] 添加远程分支<br>git push [远程仓库名如origin] [分支名master] 将本地分支推送到服务器上去<br>git fetch 获取服务器内容但不合并<br>git pull 本地与服务器端同步</p>
-</li>
-<li><p>撤销<br>git reset [–soft | –mixed | –hard] [<commit>]<br>1）使用参数–hard，如git reset –hard <commit><br>①替换引用的指向。引用指向新的提交ID。<br>②替换暂存区。替换后，暂存区的内容和引用指向的目录树一致。<br>③替换工作区。替换后，工作区的内容变得和暂存区一致，也和HEAD所指向的目录树内容相同。<br>2）使用参数–soft，如 git reset –soft <commit><br>只更改引用的指向，不改变暂存区和工作区。<br>git reset –soft HEAD^<br>git commit -e -F ‘’<br>相当于git commit –amend<br>3）使用参数–mixed或者不使用参数（默认为–mixed），如 git reset <commit><br>更改引用的指向及重置暂存区，但是不改变工作区。相当于将之前用git add 命令更新到暂存区的内容撤出暂存区<br>解决冲突：<br>编辑冲突文件后提交。</commit></commit></commit></commit></p>
-</li>
-</ul>
-<p>参考：<br><a href="http://git-scm.com/docs/git-reset" target="_blank" rel="external">http://git-scm.com/docs/git-reset</a><br><a href="http://www.cnblogs.com/craftor/archive/2012/11/04/2754140.html" target="_blank" rel="external">http://www.cnblogs.com/craftor/archive/2012/11/04/2754140.html</a></p>
+</ol>
+<p>浏览器都有刷新和重载功能，refresh会发布一个附加了Cache-Control请求首部的GET请求，这个请求会强制进行再验证，或者无条件从原始服务器获取文档。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/git-笔记/" data-id="cifwmmn5x001gbop64st4jhhk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/18/cache/" data-id="cifwmmn6a001qbop69alep15p" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
 
     </footer>
   </div>
@@ -131,19 +109,10 @@ git可以进行本地的版本控制，而且不影响中心服务器中的代�
     
 <nav id="article-nav">
   
-    <a href="/2015/08/29/javascript-垃圾回收/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          javascript 垃圾回收
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/08/28/touch系/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/08/29/行内元素居中/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">touch系</div>
+      <div class="article-nav-title">行内元素居中</div>
     </a>
   
 </nav>
